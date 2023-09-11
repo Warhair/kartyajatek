@@ -1,9 +1,10 @@
 
 package kartyavalaszto;
-
+import java.util.Scanner;
 
 public class Kartyavalaszto {
    
+    static Scanner scr = new Scanner(System.in);
     
     public static void main(String[] args) {
         jatek();
@@ -16,20 +17,35 @@ public class Kartyavalaszto {
         
         kartyakiir(szinek, ertekek, kartyak);
         for (int i = 0; i < 3; i++) {
-            kirak();
+           kirak(kartyak);
             melyik();
             kever();
         }
         ezVolt();
     }
 
-    private static void kirak() {
-        
+    private static void kirak(String[] kartyak) {
+        int szam = 0;
+        for (int i = 0; i < 21; i++) {
+            System.out.printf("%-8s", kartyak[i]);
+            szam++;
+            if(szam % 3 == 0){
+                System.out.println();
+            }
+        }
     }
 
     private static void melyik() {
-        
-    }
+       
+        boolean jo;
+        do {
+           System.out.println("Adja meg melyik oszlopot választod:(1-3)"); 
+           int oszlop = scr.nextInt();
+           jo = oszlop >= 1 && oszlop <= 3;
+        }while(!jo);
+            
+        }
+    
 
     private static void kever() {
    
@@ -40,19 +56,10 @@ public class Kartyavalaszto {
 
 
     public static String[] kartyakiir(String[] szinek, String[] ertekek, String[] kartyak) {
-        for (int i = 0; i < 12; i++) {
-            for (int j = 0; j < 4; j++) {
-                for (int k = 0; k < 3; k++) {
-                    kartyak[i] = szinek[j]+"_"+ertekek[k];
-                }
-                
-            }
-        }
-        for (int i = 12; i < 21; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    kartyak[i] = szinek[j]+"_"+ertekek[k+3];
-                }
+        int i = 0;
+        for (String szin: szinek) {
+            for (int j = 0; i < 21 && j < ertekek.length; j++) {
+                kartyak[i++] = szin + "_" + ertekek[j];
             }
             
         }
