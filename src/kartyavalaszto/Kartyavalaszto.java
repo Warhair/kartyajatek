@@ -19,7 +19,7 @@ public class Kartyavalaszto {
         for (int i = 0; i < 3; i++) {
            kirak(kartyak);
            int valasztott =  melyik();
-           kever(kartyak, valasztott);
+           kever();
         }
         ezVolt();
     }
@@ -34,7 +34,6 @@ public class Kartyavalaszto {
                 System.out.println();
             }
         }
-<<<<<<< HEAD
         
         pozicio = kever();
         for (int i = 0; i < 21; i++) {
@@ -47,22 +46,13 @@ public class Kartyavalaszto {
     }
 
     private static int melyik() {
-       
-=======
-       
-    }
-
-    private static int melyik() {
         int oszlop;
->>>>>>> eb87bb5525d94aee0d0166eae16f4c4444b508a6
         boolean jo;
-        int oszlop;
         do {
            System.out.println("Adja meg melyik oszlopot választod:(1-3)"); 
            oszlop = scr.nextInt();
            jo = oszlop >= 1 && oszlop <= 3;
         }while(!jo);
-<<<<<<< HEAD
             return oszlop;
         }
     
@@ -86,35 +76,21 @@ public class Kartyavalaszto {
                     kartyakHelye[i-1+14] = 21 - (i - 1) * 3;
                 }
                 break;
-               
-                
+                case 3:
+                 for (int i = 0; i < 7; i++) {
+                    kartyakHelye[i-1] = 21 - (i - 1) * 3;
+                    kartyakHelye[i-1+7] = 19 - (i - 1) * 3;
+                    kartyakHelye[i-1+14] = 20 - (i - 1) * 3;
+                  break;
+                 }
             }
         return kartyakHelye;
         }
             
-        return oszlop;
-    }
     
-
-    private static String[] kever(String[] kartyak, int valasztott) {
-        switch(valasztott){
-            case 3:{
-                 for (int i = 0; i < 7; i++) {
-                  kartyak[i] = kartyak[20-((i-1)*3)];
-                  kartyak[i+6] = kartyak[19-((i-1)*3)];
-                  kartyak[i+13] = kartyak[21-((i-1)*3)];
-                  break;
-        }
-        }
-        }
-         return kartyak;
-    }
-
     private static void ezVolt() {
         
     }
-
-
     public static String[] kartyakiir(String[] szinek, String[] ertekek, String[] kartyak) {
         int i = 0;
         for (String szin: szinek) {
