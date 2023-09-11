@@ -25,6 +25,7 @@ public class Kartyavalaszto {
     }
 
     private static void kirak(String[] kartyak) {
+        int pozicio[] = new int [21];
         int szam = 0;
         for (int i = 0; i < 21; i++) {
             System.out.printf("%-8s", kartyak[i]);
@@ -33,23 +34,54 @@ public class Kartyavalaszto {
                 System.out.println();
             }
         }
+        
+        pozicio = kever();
+        for (int i = 0; i < 21; i++) {
+            System.out.printf("%-8s", kartyak[pozicio[i]]);
+            szam++;
+            if(szam % 3 == 0){
+                System.out.println();
+            }
+        }
     }
 
-    private static void melyik() {
+    private static int melyik() {
        
         boolean jo;
+        int oszlop;
         do {
            System.out.println("Adja meg melyik oszlopot választod:(1-3)"); 
-           int oszlop = scr.nextInt();
+           oszlop = scr.nextInt();
            jo = oszlop >= 1 && oszlop <= 3;
         }while(!jo);
-            
+            return oszlop;
         }
     
 
-    private static void kever() {
-   
-    }
+    private static int [] kever() {
+        int kartyakHelye[] = new int [21];
+        switch(melyik()){
+            case 1:
+                for (int i = 1; i <= 7; i++) {
+                    kartyakHelye[i-1] = 20 - (i - 1) * 3;
+                    kartyakHelye[i-1+7] = 19 - (i - 1) * 3;
+                    kartyakHelye[i-1+14] = 21 - (i - 1) * 3;
+                }
+                
+                break;
+               
+            case 2:
+                for (int i = 1; i <= 7; i++) {
+                    kartyakHelye[i-1] = 19 - (i - 1) * 3;
+                    kartyakHelye[i-1+7] = 20 - (i - 1) * 3;
+                    kartyakHelye[i-1+14] = 21 - (i - 1) * 3;
+                }
+                break;
+               
+                
+            }
+        return kartyakHelye;
+        }
 
     private static void ezVolt() {
 }
