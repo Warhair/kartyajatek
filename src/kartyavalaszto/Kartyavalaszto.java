@@ -19,7 +19,6 @@ public class Kartyavalaszto {
         for (int i = 0; i < 3; i++) {
            kirak(kartyak);
            int valasztott =  melyik();
-           kever();
         }
         ezVolt();
     }
@@ -28,14 +27,8 @@ public class Kartyavalaszto {
         int pozicio[] = new int [21];
         int szam = 0;
         for (int i = 0; i < 21; i++) {
-            System.out.printf("%-8s", kartyak[i]);
-            szam++;
-            if(szam % 3 == 0){
-                System.out.println();
-            }
+          pozicio[i] = i;   
         }
-        
-        pozicio = kever();
         for (int i = 0; i < 21; i++) {
             System.out.printf("%-8s", kartyak[pozicio[i]]);
             szam++;
@@ -43,6 +36,8 @@ public class Kartyavalaszto {
                 System.out.println();
             }
         }
+        pozicio = kever();
+        
     }
 
     private static int melyik() {
@@ -62,25 +57,25 @@ public class Kartyavalaszto {
         switch(melyik()){
             case 1:
                 for (int i = 1; i <= 7; i++) {
-                    kartyakHelye[i-1] = 20 - (i - 1) * 3;
-                    kartyakHelye[i-1+7] = 19 - (i - 1) * 3;
-                    kartyakHelye[i-1+14] = 21 - (i - 1) * 3;
+                    kartyakHelye[i-1] = 19 - (i - 1) * 3;
+                    kartyakHelye[i-1+7] = 18 - (i - 1) * 3;
+                    kartyakHelye[i-1+14] = 20 - (i - 1) * 3;
                 }
                 
                 break;
                
             case 2:
                 for (int i = 1; i <= 7; i++) {
-                    kartyakHelye[i-1] = 19 - (i - 1) * 3;
-                    kartyakHelye[i-1+7] = 20 - (i - 1) * 3;
-                    kartyakHelye[i-1+14] = 21 - (i - 1) * 3;
+                    kartyakHelye[i-1] = 18 - (i - 1) * 3;
+                    kartyakHelye[i-1+7] = 19 - (i - 1) * 3;
+                    kartyakHelye[i-1+14] = 20 - (i - 1) * 3;
                 }
                 break;
                 case 3:
-                 for (int i = 0; i < 7; i++) {
-                    kartyakHelye[i-1] = 21 - (i - 1) * 3;
-                    kartyakHelye[i-1+7] = 19 - (i - 1) * 3;
-                    kartyakHelye[i-1+14] = 20 - (i - 1) * 3;
+                 for (int i = 1; i <= 7; i++) {
+                    kartyakHelye[i-1] = 20 - (i - 1) * 3;
+                    kartyakHelye[i-1+7] = 18 - (i - 1) * 3;
+                    kartyakHelye[i-1+14] = 19 - (i - 1) * 3;
                   break;
                  }
             }
