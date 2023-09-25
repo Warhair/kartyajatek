@@ -17,7 +17,14 @@ public class Kartyavalaszto {
         
         
         kartyakiir(szinek, ertekek, kartyak);
-        kirak2(kartyak);
+        int szam = 0;
+            for (int i = 0; i < 21; i++) {
+          System.out.printf("%-8s", kartyak[i]);
+          szam++;
+            if(szam % 3 == 0){
+                System.out.println();
+            }
+        }
         for (int i = 0; i < 3; i++) {
            kirak(kartyak);
            melyik();
@@ -40,15 +47,15 @@ public class Kartyavalaszto {
     
 
     private static int melyik() {
-        int oszlop;
         boolean jo;
+        int oszlop = 0;
         do {
-           System.out.println("Adja meg melyik oszlopot választod:(1-3)"); 
-           oszlop = scr.nextInt();
-           jo = oszlop >= 1 && oszlop <= 3;
-        }while(!jo);
-            return oszlop;
-        }
+            System.out.print("melyik oszlop (1-3): ");
+            oszlop = scr.nextInt();
+            jo = oszlop >= 1 && oszlop <= 3;
+        } while (!jo);
+        return oszlop;
+}
     
 
     private static int [] kever() {
@@ -84,7 +91,7 @@ public class Kartyavalaszto {
             
     
     private static void ezVolt(String [] kartyak) {
-        
+        System.out.println("Ez a kártya volt:"+kartyak[11]);
     }
     public static String[] kartyakiir(String[] szinek, String[] ertekek, String[] kartyak) {
         int i = 0;
@@ -97,15 +104,5 @@ public class Kartyavalaszto {
         return kartyak;
     }
 
-    private static void kirak2(String[] kartyak) {
-      int szam = 0;
-      for (int i = 0; i < 21; i++) {
-          System.out.printf("%-8s", kartyak[i]);
-          szam++;
-            if(szam % 3 == 0){
-                System.out.println();
-            }
-      }
-      
-    }
+    
 }
