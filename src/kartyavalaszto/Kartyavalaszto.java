@@ -27,7 +27,6 @@ public class Kartyavalaszto {
         }
         for (int i = 0; i < 3; i++) {
            kirak(kartyak);
-           melyik();
         }
         ezVolt(kartyak);
     }
@@ -36,8 +35,8 @@ public class Kartyavalaszto {
         int szam = 0;
         int pozicio[] = new int [21];
         pozicio = kever();
-        for (int i = 0; i < 21; i++) {
-            System.out.printf("%-8s", kartyak[pozicio[i]]);
+        for (int j = 0; j < 21; j++) {
+            System.out.printf("%-8s", kartyak[pozicio[j]]);
             szam++;
             if(szam % 3 == 0){
                 System.out.println();
@@ -53,6 +52,7 @@ public class Kartyavalaszto {
             System.out.print("melyik oszlop (1-3): ");
             oszlop = scr.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
+            
         } while (!jo);
         return oszlop;
 }
@@ -60,7 +60,8 @@ public class Kartyavalaszto {
 
     private static int [] kever() {
         int kartyakHelye[] = new int [21];
-        switch(melyik()){
+        int szam = melyik();
+        switch(szam){
             case 1:
                 for (int i = 1; i <= 7; i++) {
                     kartyakHelye[i-1] = 19 - (i - 1) * 3;
