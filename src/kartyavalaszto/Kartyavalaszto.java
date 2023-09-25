@@ -52,7 +52,6 @@ public class Kartyavalaszto {
             System.out.print("melyik oszlop (1-3): ");
             oszlop = scr.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
-            
         } while (!jo);
         return oszlop;
 }
@@ -61,6 +60,7 @@ public class Kartyavalaszto {
     private static int [] kever() {
         int kartyakHelye[] = new int [21];
         int szam = melyik();
+       
         switch(szam){
             case 1:
                 for (int i = 1; i <= 7; i++) {
