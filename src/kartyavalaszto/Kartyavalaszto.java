@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Kartyavalaszto {
    
     static Scanner scr = new Scanner(System.in);
-    
+    static int kartyakHelye[] = new int [21];
     public static void main(String[] args) {
         jatek();
     }
@@ -58,7 +58,7 @@ public class Kartyavalaszto {
     
 
     private static int [] kever() {
-        int kartyakHelye[] = new int [21];
+
         int szam = melyik();
        
         switch(szam){
@@ -92,7 +92,7 @@ public class Kartyavalaszto {
             
     
     private static void ezVolt(String [] kartyak) {
-        System.out.println("Ez a kártya volt:"+kartyak[11]);
+        System.out.println("Ez a kártya volt:"+kartyak[kartyakHelye[10]]);
     }
     public static String[] kartyakiir(String[] szinek, String[] ertekek, String[] kartyak) {
         int i = 0;
